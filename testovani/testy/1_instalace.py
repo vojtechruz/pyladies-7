@@ -10,7 +10,7 @@
 #
 # 3. Spousteni testu
 #    - python -m pytest -v [jmeno-souboru.py]
-#    - python -m pytest -v 1-instalace.py
+#    - python -m pytest -v 1_instalace.py
 #    - uspesne spusteni: ========================== 1 passed in 0.03 seconds ===========================
 
 def secti(a, b):

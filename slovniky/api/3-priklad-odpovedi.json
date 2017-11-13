@@ -1,0 +1,15 @@
+{
+  "login": "vojtechruz",
+  "id": 7038612,
+  "avatar_url": "https://avatars3.githubusercontent.com/u/7038612?v=4",
+  "gravatar_id": "",
+  "url": "https://api.github.com/users/vojtechruz",
+  "html_url": "https://github.com/vojtechruz",
+  "followers_url": "https://api.github.com/users/vojtechruz/followers",
+  "following_url": "https://api.github.com/users/vojtechruz/following{/other_user}","gists_url":"https://api.github.com/users/vojtechruz/gists{/gist_id}","starred_url":"https://api.github.com/users/vojtechruz/starred{/owner}{/repo}","subscriptions_url":"https: //api.github.com/users/vojtechruz/subscriptions","organizations_url":"https://api.github.com/users/vojtechruz/orgs",
+  "repos_url":"https: //api.github.com/users/vojtechruz/repos","events_url":"https://api.github.com/users/vojtechruz/events{/privacy}","received_events_url":"https://api.github.com/users/vojtechruz/received_events",
+  "type":"User","site_admin":false,"name":"Vojtech Ruzicka","company":null,
+  "blog":"www.vojtechruzicka.com","location":"Prague, Czech Republic",
+  "email":null,"hireable":null,"bio":null,"public_repos":11,"public_gists":4,
+  "followers":22,"following":10,"created_at":"2014-03-23T14: 16: 15Z","updated_at":"2017-11-13T12: 28: 12Z"
+}

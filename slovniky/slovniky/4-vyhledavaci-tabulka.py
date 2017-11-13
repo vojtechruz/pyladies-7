@@ -12,5 +12,5 @@ zlateStranky = {
     'Filip':'608915433',
 }
 
-#Jak zjistim jake cilso ma Eva?
+#Jak zjistim jake cislo ma Eva?
 print('Eva ma cislo {}'.format(zlateStranky['Eva']))

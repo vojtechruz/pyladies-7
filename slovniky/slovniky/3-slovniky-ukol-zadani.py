@@ -3,9 +3,9 @@ import pytest
 # python -m pytest -v 3-slovniky-ukol-zadani.py
 
 #Funkce musi vratit slovnik, ktery:
-    # Obashuje polozku s klicem 'Jmeno' a hodnotou 'Chundelac'
-    # Obashuje polozku s klicem 'Rasa' a libovolnou hodnotou
-    # Obashuje polozku s klicem 'Vek' a libovolnou hodnotou
+    # Obsahuje polozku s klicem 'Jmeno' a hodnotou 'Chundelac'
+    # Obsahuje polozku s klicem 'Rasa' a libovolnou hodnotou
+    # Obsahuje polozku s klicem 'Vek' a libovolnou hodnotou
 def vytvorPsika():
     pass
 

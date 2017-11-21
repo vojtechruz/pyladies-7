@@ -13,7 +13,7 @@ jsonRetezecZEshopu = """
 {
     "JménoProduktu": "Kosmodisk",
     "Cena": 2999,
-    "Skladem": true,
+    "Skladem": true
 }
 """
 

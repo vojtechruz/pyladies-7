@@ -4,9 +4,9 @@ import json
 
 #Pythoni Slovnik, ne JSON!
 psik = {
-    'Jméno': 'Chundeláč',
-    'Rasa': 'Voříšek',
-    'Věk': 5
+    'jméno': 'Chundeláč',
+    'rasa': 'Voříšek',
+    'věk': 5
 }
 
 #Lze prevest na JSON retezec

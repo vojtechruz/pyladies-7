@@ -3,18 +3,18 @@
 # na vice radku
 json_retezec = """ 
 {
-    "Jméno": "Drobek",
-    "OblibenéKrmivo": "CatFood Premium Deluxe",
-    "Váha": 11,
-    "Rasa": "Pouliční směs"
+    "jméno": "Drobek",
+    "oblibené_krmivo": "CatFood Premium Deluxe",
+    "váha": 11,
+    "rasa": "Pouliční směs"
 }
 """
 
 json_retezec_z_eshopu = """
 {
-    "JménoProduktu": "Kosmodisk",
-    "Cena": 2999,
-    "Skladem": true,
+    "jméno_produktu": "Kosmodisk",
+    "cena": 2999,
+    "skladem": true,
 }
 """
 

@@ -4,13 +4,13 @@
     #Cena dle jmena vyrobku
     #...
 zlate_stranky = {
-    'Alice': '603888921',
-    'Bohous':'777891776',
-    'Cyril':'602345666',
-    'Daniela':'728910000',
-    'Eva':'777633798',
-    'Filip':'608915433',
+    'alice': '603888921',
+    'bohous':'777891776',
+    'cyril':'602345666',
+    'daniela':'728910000',
+    'eva':'777633798',
+    'filip':'608915433',
 }
 
 #Jak zjistim jake cislo ma Eva?
-print('Eva ma cislo {}'.format(zlate_stranky['Eva']))
+print('Eva ma cislo {}'.format(zlate_stranky['eva']))

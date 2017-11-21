@@ -3,7 +3,7 @@
     #Telefonni cisla dle jmena
     #Cena dle jmena vyrobku
     #...
-zlateStranky = {
+zlate_stranky = {
     'Alice': '603888921',
     'Bohous':'777891776',
     'Cyril':'602345666',
@@ -13,4 +13,4 @@ zlateStranky = {
 }
 
 #Jak zjistim jake cislo ma Eva?
-print('Eva ma cislo {}'.format(zlateStranky['Eva']))
+print('Eva ma cislo {}'.format(zlate_stranky['Eva']))

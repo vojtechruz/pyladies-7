@@ -1,3 +1,5 @@
+//Toto je priklad odpovedi, kterou vraci volani API
+//https://api.github.com/user
 {
   "login": "vojtechruz",
   "id": 7038612,

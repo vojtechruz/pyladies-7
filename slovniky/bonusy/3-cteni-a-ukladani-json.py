@@ -4,7 +4,7 @@
 # - pridej polozku 'Dopravne' s hodnotou 199
 # - preved vysledny slovnik na JSON retezec a vypis ho do konzole
 
-jsonRetezecZEshopu = """
+json_retezec_z_eshopu = """
 {
     "JménoProduktu": "Kosmodisk",
     "Cena": 2999,

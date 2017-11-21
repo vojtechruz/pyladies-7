@@ -1,6 +1,7 @@
 #Je potreba naimportovat modul 'json'
 import json
-jsonRetezecKocka =""" 
+
+json_retezec_kocka = """ 
 {
     "Jméno": "Drobek",
     "OblibenéKrmivo": "CatFood Premium Deluxe",
@@ -9,15 +10,7 @@ jsonRetezecKocka ="""
 }
 """
 
-jsonRetezecZEshopu = """
-{
-    "JménoProduktu": "Kosmodisk",
-    "Cena": 2999,
-    "Skladem": true
-}
-"""
-
-nactenyJsonKocicka = json.loads(jsonRetezecKocka)
-nactenyJsonKocicka['Odblešena'] = True
-print(nactenyJsonKocicka)
+nacteny_json_kocicka = json.loads(json_retezec_kocka)
+nacteny_json_kocicka['Odblešena'] = True
+print(nacteny_json_kocicka)
 

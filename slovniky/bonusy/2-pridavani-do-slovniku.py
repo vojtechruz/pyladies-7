@@ -5,7 +5,7 @@
 # Bonus: Zkontroluj ze zadane cislo je cele cislo, jinak se ptej znovu
 # Bonus: Zkntroluj zda dane jmenu v seznamu uz neni. Pokud tam je, ptej se znovu
 
-zlateStranky = {
+zlate_stranky = {
     'Alice': '603888921',
     'Bohous':'777891776',
     'Cyril':'602345666',

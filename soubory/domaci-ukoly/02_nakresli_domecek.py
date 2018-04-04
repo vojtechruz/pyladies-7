@@ -19,7 +19,7 @@ def nakresli_domecek(delka_strany):
     forward(delka_uhlopricky / 2)
     left(90)
     forward(delka_uhlopricky)
-    right(135)
+    right(90 + 45)
     forward(delka_strany)
     right(90)
     forward(delka_strany)

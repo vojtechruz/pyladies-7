@@ -5,26 +5,26 @@
 from turtle import forward, left, right, exitonclick, hideturtle
 from math import sqrt
 
-def nakresli_domecek(velikost):
+def draw_house(size):
     left(45)
-    forward(sqrt(2) * velikost)
+    forward(sqrt(2)*size)
     left(90)
-    forward(sqrt(2) * velikost / 2)
+    forward(sqrt(2)*size/2)
     left(90)
-    forward(sqrt(2) * velikost / 2)
+    forward(sqrt(2)*size/2)
     left(90)
-    forward(sqrt(2) * velikost)
+    forward(sqrt(2)*size)
     right(135)
-    forward(velikost)
+    forward(size)
     right(90)
-    forward(velikost)
+    forward(size)
     right(90)
-    forward(velikost)
+    forward(size)
     right(90)
-    forward(velikost)
+    forward(size)
     # Bez tohoto prikazu bude na konci nakreslene cary sipka
     hideturtle()
 
-velikost_domecku = input("Zadej velikost domecku: ")
-nakresli_domecek(velikost_domecku)
+house_size = input("Zadej velikost domecku: ")
+draw_house(house_size)
 exitonclick()

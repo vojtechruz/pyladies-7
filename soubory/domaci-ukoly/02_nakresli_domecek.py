@@ -5,26 +5,31 @@
 from turtle import forward, left, right, exitonclick, hideturtle
 from math import sqrt
 
-def nakresli_domecek(velikost):
+def nakresli_domecek(delka_strany):
+
+    delka_uhlopricky = sqrt(2 * delka_strany ** 2)
+
     left(45)
-    forward(sqrt(2) * velikost)
+    forward(delka_uhlopricky)
     left(90)
-    forward(sqrt(2) * velikost / 2)
+    # Strecha
+    forward(delka_uhlopricky / 2)
     left(90)
-    forward(sqrt(2) * velikost / 2)
+    # Strecha
+    forward(delka_uhlopricky / 2)
     left(90)
-    forward(sqrt(2) * velikost)
+    forward(delka_uhlopricky)
     right(135)
-    forward(velikost)
+    forward(delka_strany)
     right(90)
-    forward(velikost)
+    forward(delka_strany)
     right(90)
-    forward(velikost)
+    forward(delka_strany)
     right(90)
-    forward(velikost)
+    forward(delka_strany)
     # Bez tohoto prikazu bude na konci nakreslene cary sipka
     hideturtle()
 
 velikost_domecku = input("Zadej velikost domecku: ")
-nakresli_domecek(velikost_domecku)
+nakresli_domecek(int(velikost_domecku))
 exitonclick()

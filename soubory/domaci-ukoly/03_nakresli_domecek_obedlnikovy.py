@@ -3,29 +3,30 @@
 # (t.j. velikost se zadá argumentem)
 
 from turtle import forward, left, right, exitonclick, hideturtle
-from math import sqrt
+from math import sqrt, asin, degrees
 
 def nakresli_domecek(vyska, sirka):
 
     delka_uhlopricky = sqrt(vyska ** 2 + sirka ** 2)
+    uhel = degrees(asin(vyska / delka_uhlopricky))
 
-    left(?)
+    left(uhel)
     forward(delka_uhlopricky)
-    left(?)
+    left(180 - 2 * uhel)
     # Strecha
     forward(delka_uhlopricky / 2)
-    left(?)
+    left(uhel * 2)
     # Strecha
     forward(delka_uhlopricky / 2)
-    left(?)
+    left(180 - 2 * uhel)
     forward(delka_uhlopricky)
-    right(?)
+    right(180 - uhel)
     forward(sirka)
-    right(?)
+    right(90)
     forward(vyska)
-    right(?)
+    right(90)
     forward(sirka)
-    right(?)
+    right(90)
     forward(vyska)
     # Bez tohoto prikazu bude na konci nakreslene cary sipka
     hideturtle()

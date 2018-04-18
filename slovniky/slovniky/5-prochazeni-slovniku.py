@@ -36,7 +36,7 @@ for klic in zlate_stranky.keys():
 #Pokud chces odebirat, musis toto pravidlo nejak obejit.
 # Napriklad prevest klice na novy seznam a ten prochazet:
 for klic in list(zlate_stranky.keys()):
-    if(klic == 'Filip'):
+    if klic == 'Filip':
         del zlate_stranky[klic]
 
 # Overme si ze filip je opravdu odstranen

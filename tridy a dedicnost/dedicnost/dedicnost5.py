@@ -21,10 +21,6 @@ class Kotatko(Zviratko):
 
 
 class MlsneKotatko(Kotatko):
-    def __init__(self, jmeno, vek):
-        super().__init__(self, jmeno)
-        self.vek = vek
-
     def __str__(self):
         return 'Mlsne Kotatko {}'.format(self.jmeno)
 
@@ -42,12 +38,12 @@ class Stenatko(Zviratko):
 
 kotatko = Kotatko('Micka')
 kotatko.zamnoukej('Ta vaza spadla sama!')
-# kotatko.snez('Mys')
+kotatko.snez('Mys')
 
-mlsne_kotatko = MlsneKotatko('Mlsoun', 12)
+mlsne_kotatko = MlsneKotatko('Mlsoun')
 mlsne_kotatko.zamnoukej('Uz jsem dlouho nejedl.')
-# mlsne_kotatko.snez('Mys')
-#
-# stenatko = Stenatko('Rex')
-# stenatko.zastekej('Ta louzicka uz tu byla!')
-# stenatko.snez('Kost')
+mlsne_kotatko.snez('Mys')
+
+stenatko = Stenatko('Rex')
+stenatko.zastekej('Ta louzicka uz tu byla!')
+stenatko.snez('Kost')

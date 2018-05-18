@@ -3,19 +3,18 @@
 # Puvodni zpusob nastavovani atributu z minuleho prikladu je zakomentovan.
 
 class Kotatko:
-    def __init__(self, jmeno, barva, vek):
+    def __init__(self, jmeno):
         print('Vytvarim kotatko se jmenem {}'.format(jmeno))
         self.jmeno = jmeno
-        self.barva = barva
-        self.vek = vek
 
     def zamnoukej(self, zprava):
         print('{}: {}'.format(self.jmeno, zprava))
 
-    def __str__(self):
-        return "Kotatko jmenem:"+self.jmeno;
 
-kotatko = Kotatko("Micka", "Hneda", 2)
-print(kotatko)
+kotatko = Kotatko('Micka')
 # kotatko.jmeno = 'Micka'
-# kotatko.zamnoukej('Mnau?')
+kotatko.zamnoukej('Mnau?')
+
+jine_kotatko = Kotatko('Mourek');
+# jine_kotatko.jmeno = 'Mourek'
+jine_kotatko.zamnoukej('Mnaaaaaaau!')

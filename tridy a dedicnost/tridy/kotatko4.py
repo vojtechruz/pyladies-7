@@ -9,6 +9,7 @@ class Kotatko:
 
 
 kotatko = Kotatko()
+kotatko.jmeno = 'Micka'
 kotatko.zamnoukej('Mnau?')
 kotatko.zamnoukej('Mnau!!!!')
 

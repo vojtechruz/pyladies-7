@@ -1,3 +1,5 @@
+# -*- coding: UTF-8 -*-
+
 print('Slyšela jsem tuto básničku:')
 print()
 soubor = open('basnicka.txt', encoding='utf-8')

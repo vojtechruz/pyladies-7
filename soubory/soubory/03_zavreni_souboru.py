@@ -1,3 +1,5 @@
+# -*- coding: UTF-8 -*-
+
 soubor = open('basnicka.txt', encoding='utf-8')
 
 try:

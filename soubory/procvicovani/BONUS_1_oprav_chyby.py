@@ -1,6 +1,5 @@
 # -*- coding: UTF-8 -*-
-#Najdi 4 chyby v programu, oprav je. Vytvor Pull request s opravou.
-import random # 1. chyba, ten radek chybel
+#Najdi 4 chyby v programu, oprav je.
 
 def piskvorky1d():
     herni_pole = "-" * 20
@@ -29,11 +28,11 @@ def piskvorky1d():
             return
 
 def tah_hrace(herni_pole):
-    while True: # 2. chyba
+    while True
         cislo_policka = input("Zadej cislo policka 0-19: ")
         cislo_policka = int(cislo_policka)
         if cislo_policka < 0 or cislo_policka > 19:
-            print("Prosim zadej cislo v rozmezi 0-19.") # 3. chyba, bylo spatne odsazeni
+        print("Prosim zadej cislo v rozmezi 0-19.")
         elif herni_pole[cislo_policka] != "-":
             print("Policko {} je obsazene, vyber prosim jine.".format(cislo_policka))
         else:
@@ -49,7 +48,7 @@ def tah_pocitace(herni_pole):
         if herni_pole[cislo_policka] == "-":
             return tah(herni_pole, cislo_policka, "o")
 
-def vyhodnot(herni_pole): #4. chyba, spatne jmeno parametru
+def vyhodnot():
     if "xxx" in herni_pole:
         return "x"
     elif "ooo" in herni_pole:

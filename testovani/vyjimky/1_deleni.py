@@ -1,8 +1,8 @@
 def ziskej_delenec():
-    return int(input('Zadej Delenec'))
+    return int(input('Zadej Delenec: '))
 
 def ziskej_delitel():
-    return int(input('Zadej Delitel'))
+    return int(input('Zadej Delitel: '))
 
 def vydel(delenec, delitel):
     return delenec / delitel

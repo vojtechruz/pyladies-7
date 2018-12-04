@@ -3,10 +3,10 @@ import pyglet
 
 def key_pressed(symbol, modifiers):
     # Number representing key
-    print("symbol: " + symbol)
+    print("symbol: " + str(symbol))
     # Number representing holding additional keys
     # such as CTRL, ALT or SHIFT
-    print("modifiers: " + modifiers)
+    print("modifiers: " + str(modifiers))
 
 
 window = pyglet.window.Window()

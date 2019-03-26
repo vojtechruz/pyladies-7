@@ -3,7 +3,7 @@
 
 
 while True:
-    barva = input("Jakou barvu si myslim?")
+    barva = input("Jakou barvu si myslim?\n")
     if barva == "modra":
         print("Spravne! Byla to modra!")
         break

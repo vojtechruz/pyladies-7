@@ -3,7 +3,7 @@
 # <, >
 # <=, >=
 
-vek = int(input("Zadej svuj vek:"))
+vek = int(input("Zadej svuj vek:\n"))
 if vek < 6:
     print("Jizdne zdarma!")
 elif vek <= 26:

@@ -3,7 +3,7 @@
 # <, >
 # <=, >=
 
-den = input("Jaky je den v tydnu?")
+den = input("Jaky je den v tydnu?\n")
 
 if den == "nedele":
     print("Super! Vikend!")

@@ -3,6 +3,7 @@
 # <, >
 # <=, >=
 
+
 vek = int(input("Zadej svuj vek:\n"))
 if vek < 6:
     print("Jizdne zdarma!")

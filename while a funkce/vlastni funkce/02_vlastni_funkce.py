@@ -6,7 +6,7 @@ def napis_ahoj():
 # Funkce se vstupnimi parametry
 def obvod_obdelniku(sirka, vyska):
     obvod = 2 * (sirka + vyska)
-    print("Obvod obdelnika je " + str(obvod))
+    print("Obvod obdelniku je " + str(obvod))
 
 
 obvod_obdelniku(1, 1)

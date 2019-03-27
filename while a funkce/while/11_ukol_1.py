@@ -15,3 +15,20 @@
 # 5
 # 6
 # Konec hry!
+
+
+from random import randrange
+
+#Reseni 1
+while True:
+    hod = randrange(1,7)
+    print(hod)
+    if hod == 6:
+        break
+
+
+# Reseni 2
+hod = 0
+while hod != 6:
+    hod = randrange(1,7)
+    print(hod)

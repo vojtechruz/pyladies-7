@@ -1,13 +1,12 @@
 jmeno = "Jana"
 
 
-def predstavSe():
+def predstav_se():
     jmeno = "Eva"
     print("Ahoj, ja jsem " + jmeno)
 
 
 
 
-predstavSe() # Ahoj, ja jsem Eva
-
+predstav_se() # Ahoj, ja jsem Eva
 print(jmeno) # Jana

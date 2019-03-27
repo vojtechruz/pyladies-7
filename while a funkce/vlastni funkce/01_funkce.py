@@ -1,13 +1,9 @@
-# For cyklus se pouziva, kdyz jde o specificky pocet opakovani
+# Nektere funkce nemaji zadne vstupni parametery
+# print()
 
-# Vypise cisla od 0 do 4
-for cislo in range(5):
-    print(cislo)
+# Vetsinou vsak maji jeden nebo vice parametru
+# print("Ahoj!")
 
-
-# Vysledek:
-# 0
-# 1
-# 2
-# 3
-# 4
+# Mohou vracet nejakou hodnotu, s kterou pak muzeme dale pracovat
+barva = input("Zadej svou oblibenou barvu\n")
+print("Tva oblibena barva je " + barva)

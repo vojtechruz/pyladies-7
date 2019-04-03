@@ -1,2 +1,2 @@
-# Jak zde napisu novy radek ???
-print("Ahoj!Jak se mas?")
+# Novy radek je pomoci \n
+print("Ahoj!\nJak se mas?")

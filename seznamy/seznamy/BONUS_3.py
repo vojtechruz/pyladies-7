@@ -1,0 +1,1 @@
+# Napis funkci ktera pro dany retezec vrati pocet vyskytu slova "ale"

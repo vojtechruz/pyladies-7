@@ -1,0 +1,1 @@
+# Napis funkci, ktera vrati seznam celych cisel od 0 do 99

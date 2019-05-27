@@ -12,7 +12,7 @@ def draw_spaceship():
 
 
 window = pyglet.window.Window()
-# Every time we need to redraw (for example when minimalizing and then
+# Every time we need to redraw (for example when minimizing and then
 # maximizing the app window), function draw_spaceship will be called
 window.push_handlers(on_draw=draw_spaceship)
 pyglet.app.run()

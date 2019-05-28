@@ -1,0 +1,1 @@
+Added asteroid class inheriting from the space object.

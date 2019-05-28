@@ -15,5 +15,8 @@ class Asteroid(SpaceObject):
         self.x %= window.width
         self.y %= window.height
 
+        self.rotation += (self.x_speed + self.y_speed)*0.001
+
+
 
 

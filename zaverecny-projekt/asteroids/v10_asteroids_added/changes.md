@@ -1,0 +1,1 @@
+Added number of asteroids with random speed and rotation

@@ -24,7 +24,7 @@ def draw_all_objects():
 
 def tick_all_objects(time_elapsed):
     for obj in objects:
-        obj.tick()
+        obj.tick(time_elapsed)
 
 
 

@@ -17,5 +17,5 @@ class Spaceship:
         self.sprite.y = self.y
         self.sprite.draw()
 
-    def tick(self):
+    def tick(self, time_elapsed):
         print("Tick Tock!")

@@ -20,12 +20,17 @@ def draw_all_objects():
     for obj in objects:
         obj.draw()
 
+def tick_all_objects(time_elapsed):
+    for obj in objects:
+        obj.tick(time_elapsed)
+
 
 
 init_spaceship()
 window.push_handlers(
     on_draw=draw_all_objects
 )
+pyglet.clock.schedule_interval(tick_all_objects, 1/30)
 pyglet.app.run()
 
 

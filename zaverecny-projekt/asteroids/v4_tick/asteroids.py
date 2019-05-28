@@ -11,8 +11,6 @@ def init_spaceship():
     spaceship = Spaceship()
     spaceship.x = window.width/2
     spaceship.y = window.height/2
-    print (window.width)
-    print (window.height)
 
     objects.append(spaceship)
 

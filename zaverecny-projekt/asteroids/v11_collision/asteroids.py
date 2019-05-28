@@ -53,10 +53,31 @@ def draw_all_objects():
             # Restore remembered state (this cancels the glTranslatef)
             gl.glPopMatrix()
 
+def distance(a, b, wrap_size):
+    """Distance in one direction (x or y)"""
+    result = abs(a - b)
+    if result > wrap_size / 2:
+        result = wrap_size - result
+    return result
+
+def overlaps(a, b):
+    """Returns true iff two space objects overlap"""
+    distance_squared = (distance(a.x, b.x, window.width) ** 2 +
+                        distance(a.y, b.y, window.height) ** 2)
+    max_distance_squared = (a.radius + b.radius) ** 2
+
+    return distance_squared < max_distance_squared
 
 def tick_all_objects(time_elapsed):
+    ship = objects[0]
+
     for obj in objects:
         obj.tick(time_elapsed, keys_pressed, window)
+        if(obj.can_collide and overlaps(ship, obj)):
+            obj.collision = True
+        else:
+            obj.collision = False
+
 
 def on_key_pressed(key, modifiers):
     keys_pressed.add(key)

@@ -1,6 +1,7 @@
 import pyglet
 
-ROTATION_SPEED = 4
+# Degrees per second
+ROTATION_SPEED = 200
 
 class Spaceship:
     def __init__(self):
@@ -22,5 +23,8 @@ class Spaceship:
         self.sprite.rotation = self.rotation
         self.sprite.draw()
 
-    def tick(self, time_elapsed):
-        print("Tick Tock!")
+    def tick(self, time_elapsed, keys_pressed):
+        if pyglet.window.key.LEFT in keys_pressed:
+            self.rotation = self.rotation - time_elapsed*ROTATION_SPEED
+        if pyglet.window.key.RIGHT in keys_pressed:
+            self.rotation = self.rotation + time_elapsed*ROTATION_SPEED

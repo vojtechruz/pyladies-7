@@ -19,15 +19,13 @@ background_image = pyglet.image.load('../assets/Backgrounds/darkPurple.png')
 background = pyglet.image.TileableTexture.create_for_image(background_image)
 
 def init_spaceship():
-    spaceship = Spaceship(batch)
+    spaceship = Spaceship(batch, objects)
     spaceship.x = window.width/2
     spaceship.y = window.height/2
 
-    objects.append(spaceship)
-
 def init_asteroids():
     for i in range(ASTEROID_COUNT):
-        asteroid = Asteroid(batch)
+        asteroid = Asteroid(batch, objects)
         position = random.choice([0,1])
         if position == 0:
             asteroid.x = random.randint(0, window.width)
@@ -38,7 +36,6 @@ def init_asteroids():
 
         asteroid.x_speed = random.choice([-1,1]) * random.randint(ASTEROID_MIN_SPEED,ASTEROID_MAX_SPEED)
         asteroid.y_speed = random.choice([-1,1]) * random.randint(ASTEROID_MIN_SPEED,ASTEROID_MAX_SPEED)
-        objects.append(asteroid)
 
 def draw_all_objects():
     window.clear()
@@ -118,5 +115,5 @@ window.push_handlers(
     on_key_release=on_key_released
 )
 pyglet.clock.schedule_interval(tick_all_objects, 1/30)
-window.set_fullscreen(fullscreen=True, width=WINDOW_WIDTH, height=WINDOW_HEIGHT)
+# window.set_fullscreen(fullscreen=True, width=WINDOW_WIDTH, height=WINDOW_HEIGHT)
 pyglet.app.run()

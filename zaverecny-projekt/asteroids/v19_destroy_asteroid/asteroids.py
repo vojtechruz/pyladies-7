@@ -19,13 +19,13 @@ background_image = pyglet.image.load('../assets/Backgrounds/darkPurple.png')
 background = pyglet.image.TileableTexture.create_for_image(background_image)
 
 def init_spaceship():
-    spaceship = Spaceship(batch, objects)
+    spaceship = Spaceship(batch, objects, window)
     spaceship.x = window.width/2
     spaceship.y = window.height/2
 
 def init_asteroids():
     for i in range(ASTEROID_COUNT):
-        asteroid = Asteroid(batch, objects)
+        asteroid = Asteroid(batch, objects, window)
         position = random.choice([0,1])
         if position == 0:
             asteroid.x = random.randint(0, window.width)
@@ -66,21 +66,6 @@ def draw_all_objects():
             # Restore remembered state (this cancels the glTranslatef)
             gl.glPopMatrix()
 
-def distance(a, b, wrap_size):
-    """Distance in one direction (x or y)"""
-    result = abs(a - b)
-    if result > wrap_size / 2:
-        result = wrap_size - result
-    return result
-
-def overlaps(a, b):
-    """Returns true iff two space objects overlap"""
-    distance_squared = (distance(a.x, b.x, window.width) ** 2 +
-                        distance(a.y, b.y, window.height) ** 2)
-    max_distance_squared = (a.radius + b.radius) ** 2
-
-    return distance_squared < max_distance_squared - 2000
-
 def collision(obj):
 
     objects[0].destroy_object()
@@ -97,8 +82,11 @@ def tick_all_objects(time_elapsed):
 
     for obj in objects:
         obj.tick(time_elapsed, keys_pressed, window)
-        if(obj.can_collide and overlaps(ship, obj)):
+
+        # Check all object if they collide with ship
+        if(obj.can_collide and obj.overlaps(ship)):
             collision(obj)
+
 
 def on_key_pressed(key, modifiers):
     keys_pressed.add(key)
@@ -115,5 +103,5 @@ window.push_handlers(
     on_key_release=on_key_released
 )
 pyglet.clock.schedule_interval(tick_all_objects, 1/30)
-window.set_fullscreen(fullscreen=True, width=WINDOW_WIDTH, height=WINDOW_HEIGHT)
+# window.set_fullscreen(fullscreen=True, width=WINDOW_WIDTH, height=WINDOW_HEIGHT)
 pyglet.app.run()

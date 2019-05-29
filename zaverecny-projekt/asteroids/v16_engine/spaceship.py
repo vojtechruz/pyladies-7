@@ -9,9 +9,10 @@ ACCELERATION = 200
 class Spaceship(SpaceObject):
     def __init__(self, batch):
         super().__init__(batch)
-        engine_image = pyglet.image.load("../assets/PNG/effects/fire06.png")
-        engine_image.anchor_x = engine_image.width //2
-        engine_image.anchor_y = -engine_image.height -5
+        self.batch = batch
+        self.engine_counter = 2
+        self.engine_image_number = "06"
+        engine_image = self.get_engine_image()
 
         self.engine_sprite = pyglet.sprite.Sprite(engine_image, batch=batch)
 
@@ -19,6 +20,12 @@ class Spaceship(SpaceObject):
         return "../assets/PNG/playerShip1_orange.png"
 
     def tick(self, time_elapsed, keys_pressed, window):
+        self.engine_counter = self.engine_counter -1
+        if self.engine_counter == 0:
+            self.engine_counter = 2
+            engine_image = self.get_engine_image()
+            self.engine_sprite = pyglet.sprite.Sprite(engine_image, batch=self.batch)
+
         self.engine_sprite.visible = False
         if pyglet.window.key.LEFT in keys_pressed:
             self.rotation = self.rotation + time_elapsed*ROTATION_SPEED
@@ -46,3 +53,15 @@ class Spaceship(SpaceObject):
     def destroy_object(self):
         super().destroy_object()
         self.engine_sprite.delete()
+
+    def get_engine_image(self):
+        if self.engine_image_number == "06":
+            self.engine_image_number = "07"
+        else:
+            self.engine_image_number = "06"
+
+        engine_image = pyglet.image.load("../assets/PNG/effects/fire"+self.engine_image_number+".png")
+        engine_image.anchor_x = engine_image.width //2
+        engine_image.anchor_y = -engine_image.height -5
+        return engine_image
+

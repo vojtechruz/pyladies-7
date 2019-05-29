@@ -1,0 +1,1 @@
+Lasers now have cooldown and disappear after certain time period

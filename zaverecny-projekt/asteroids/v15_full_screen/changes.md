@@ -1,0 +1,1 @@
+Window is now full screen

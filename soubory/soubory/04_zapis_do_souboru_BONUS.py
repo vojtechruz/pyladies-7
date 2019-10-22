@@ -1,6 +1,6 @@
 # -*- coding: UTF-8 -*-
 
-with open('druha-basnicka.txt', mode='a', encoding='utf-8') as soubor:
+with open('druha-basnicka.txt', mode='TODO', encoding='utf-8') as soubor:
     print('Naše staré hodiny', file=soubor)
     print('Bijí', 2+2, 'hodiny', file=soubor)
 

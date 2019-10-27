@@ -6,12 +6,15 @@
 # BONUS: Pridej funkce i pro vypocet strany, 
 # pokud zname jednu odvesnu a preponu
 
-# Pythagorova věta: a**2 * b**2 = c**2
+# Pythagorova věta: a**2 + b**2 = c**2
+from math import sqrt
 
-def vypocti_delku_prepony(a, b):
-    # a = int(input("Zadej délku první odvěsny "))
-    # b = int(input("Zadej délku druhé odvěsny "))
-    prepona = a**2 * b**2 #odmocnina?
+def vypocti_delku_prepony(odvesna_a, odvesna_b):
+    prepona = sqrt(odvesna_a**2 + odvesna_b**2)
+    return prepona
+
+def vypocti_delku_strany(odvesna, prepona):
+    strana = sqrt(prepona**2 - odvesna**2)
+    return strana
 
 
-vypocti_delku_prepony()

@@ -21,4 +21,4 @@ while True:
         print(error) # Vypise chybovou hlasku z vyjimky
         print("Prosim zadej nezaporne desetinne cislo!")
 
-print("Obvod ctverce je {}".format(obsah))
+print("Obsah ctverce je {}".format(obsah))

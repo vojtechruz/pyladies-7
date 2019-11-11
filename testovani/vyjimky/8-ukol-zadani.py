@@ -13,5 +13,5 @@ def vypocitej_obsah_ctverce(strana):
 
 zadana_strana = input("Zadej stranu ctverce v centimetrech:")
 obsah = vypocitej_obsah_ctverce(zadana_strana)
-print("Obvod ctverce je {}".format(obsah))
+print("Obsah ctverce je {}".format(obsah))
 

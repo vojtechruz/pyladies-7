@@ -1,5 +1,5 @@
 #Ukol - pridej podminku, ze pokud uzivatel nezada cislo (ale napr. retezec),
-#tak mu program napise, ze pro obvod je potreba cislo a bude se ptat dal,
+#tak mu program napise, ze pro obsah je potreba cislo a bude se ptat dal,
 #dokud opravdu nedostane cislo.
 
 while True:

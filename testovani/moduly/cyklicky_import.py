@@ -1,0 +1,3 @@
+import cyklicky_import_a
+
+cyklicky_import_a.udelej_neco_jineho_a()

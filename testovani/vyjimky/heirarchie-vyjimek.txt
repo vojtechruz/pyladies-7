@@ -1,0 +1,18 @@
+BaseException
+ ├── SystemExit                     vyvolána funkcí exit()
+ ├── KeyboardInterrupt              vyvolána po stisknutí Ctrl+C
+ ╰── Exception
+      ├── ArithmeticError
+      │    ╰── ZeroDivisionError    dělení nulou
+      ├── AssertionError            nepovedený příkaz `assert`
+      ├── AttributeError            neexistující atribut, např. 'abc'.len
+      ├── ImportError               nepovedený import
+      ├── LookupError
+      │    ╰── IndexError           neexistující index, např. 'abc'[999]
+      ├── NameError                 použití neexistujícího jména proměnné
+      │    ╰── UnboundLocalError    použití proměnné, která ještě nebyla nastavená
+      ├── SyntaxError               špatná syntaxe – program je nečitelný/nepoužitelný
+      │    ╰── IndentationError     špatné odsazení
+      │         ╰── TabError        kombinování mezer a tabulátorů
+      ├── TypeError                 špatný typ, např. len(9)
+      ╰── ValueError                špatná hodnota, např. int('xyz')

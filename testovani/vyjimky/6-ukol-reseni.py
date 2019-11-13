@@ -7,10 +7,12 @@ while True:
         strana = float(input('Zadej stranu čtverce v centimetrech: '))
     except ValueError:
         print("Zadej prosim cislo.")
+        continue
+
+    if strana <= 0:
+        print('Delka strany musi byt kladne cislo!')
     else:
-        if strana <= 0:
-            print('Delka strany musi byt kladne cislo!')
-        else:
-            break
+        break
+
 
 print("Obsah ctverce je {}".format(strana*strana))

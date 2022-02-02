@@ -14,6 +14,6 @@ kotatko = Kotatko('Micka')
 print(kotatko)
 kotatko.zamnoukej('Mnau?')
 
-jine_kotatko = Kotatko('Mourek');
+jine_kotatko = Kotatko('Mourek')
 print(jine_kotatko)
 jine_kotatko.zamnoukej('Mnaaaaaaau!')

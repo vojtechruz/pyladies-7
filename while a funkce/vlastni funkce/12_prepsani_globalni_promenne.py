@@ -1,10 +1,11 @@
 jmeno = "Jana"
 
 def predstav_se():
-    global jmeno # Nyni rikame, ze chceme odkazovat na globalni promennou jmeno
-    print(jmeno) # Jana - puvodni hodnota z vnejsku funkce
+    # Nova lokalni promenna 'jmeno' s hodnotou 'Eva'
+    # Zastini globalni promennou
+    # Ale globalni stale existuje
     jmeno = "Eva"
     print("Ahoj, ja jsem " + jmeno)
 
-predstav_se() # Ahoj, ja jsem Eva
-print(jmeno) # Eva
+predstav_se() # Ahoj, ja jsem Eva (vypisuje lokalni promennnou uvnitr funkce)
+print(jmeno) # Jana (globalni promenna zezacatku souboru)

@@ -1,3 +1,5 @@
+# Uprav nasledujici program. Zjednodus jej se zachovanim soucasneho chovani
+# a odstran duplicity pouzitim cyklu a funkci
 from turtle import forward, left, exitonclick
 
 forward(50)

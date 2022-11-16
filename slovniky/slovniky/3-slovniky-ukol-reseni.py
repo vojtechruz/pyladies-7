@@ -1,6 +1,5 @@
 import pytest
-#Ukol, uprav nasledujici funkce podle zadani, tak aby prochazely testy
-# python -m pytest -v 3-slovniky-ukol-zadani.py
+#Ukol, uprav nasledujici funkce podle zadani nize
 
 #Funkce musi vratit slovnik, ktery:
 # Obsahuje polozku s klicem 'jmeno' a hodnotou 'Chundelac'
@@ -31,6 +30,26 @@ def vytvor_kocicku():
     kocicka['vaha'] = 11
 
     return kocicka
+
+
+
+# Bonus: Zkontroluj spravnost sve implementace pomoci testu
+# 1. Ujistete se, ze mate vytvorene virtualni prostredi 'venv'
+#     - Instrukce zde: http://naucse.python.cz/2017/pyladies-praha-podzim-cznic/beginners/install/windows/
+#     - Prikaz k vytvoreni: py -3 -m venv venv
+#     - K aktivaci: \venv\Scripts\activate
+#     - Pokud je venv aktivni, na zacatku prikazove radky se ukaze (venv)
+#
+# 2. Instalujte knihovnu pytest
+#     - python -m pip install pytest
+#     - Pokud je vse v poradku: Successfully installed colorama-0.3.9 py-1.4.34 pytest-3.2.3
+#
+# 3. Spousteni testu
+#    - python -m pytest -v [jmeno-souboru.py]
+#    - python -m pytest -v 3-slovniky-ukol-reseni.py
+#    - uspesne spusteni: ========================== 1 passed in 0.03 seconds ===========================
+
+
 
 
 def test_psik_ma_spravne_jmeno():

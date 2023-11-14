@@ -18,20 +18,28 @@ zlate_stranky = {
 }
 
 vysledky = []
+# Hledani budeme opakovat dokud nemame zadne vysledky
 while len(vysledky) == 0:
 
     vyhledavany_vyraz = input("Zadej jmeno/cislo nebo jejich cast k vyhledani:\n")
 
+    # Projdeme kazdou polozku ve zlatych stranckach
     for jmeno, cislo in zlate_stranky.items():
+        # Prevedeme jmeno na mala pismena pro porovnavani kde velikost nehraje roli
         jmeno_male = jmeno.lower()
 
+        # Pokud vyhledavany vyraz je soucasti jmena nebo cisla pridame ho do vysledku
+        # Jmeno pred porovnavani predeveme take na mala pismena
+        # Hledany vyraz i jmeno jsou pak male a velikost nehraje roli
         if vyhledavany_vyraz.lower() in jmeno_male or vyhledavany_vyraz in cislo:
             vysledky.append(jmeno)
 
-    print("Hledany vyraz nenalezen:", vyhledavany_vyraz)
+    if len(vysledky) == 0:
+        print("Hledany vyraz nenalezen:", vyhledavany_vyraz)
 
-
+# Setridime nalezena jmena dle abecedy
 vysledky_setridene = sorted(vysledky)
 
+# Vypiseme vysledky jeden po druhem do konzole
 for jmeno in vysledky_setridene:
     print(jmeno, ":", zlate_stranky[jmeno])

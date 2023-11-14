@@ -2,7 +2,7 @@
 # - Zeptej se uzivatele na jmeno ktere chce pridat do seznamu
 # - Pote se zeptej na telefonni cislo
 # - Pridej ziskane polozky do telefoniho seznamu nize
-# Bonus: Zkontroluj ze zadane cislo je cele cislo, jinak se ptej znovu
+# Bonus: Zkontroluj ze zadane cislo ma 9 znaku, jinak se ptej znovu
 # Bonus: Zkontroluj zda dane jmenu v seznamu uz neni. Pokud tam je, ptej se znovu
 
 zlate_stranky = {

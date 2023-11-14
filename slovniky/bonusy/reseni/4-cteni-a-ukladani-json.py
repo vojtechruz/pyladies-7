@@ -3,15 +3,7 @@
 # - zmen polozku 'Skladem' na False
 # - pridej polozku 'Dopravne' s hodnotou 199
 # - preved vysledny slovnik na JSON retezec a vypis ho do konzole
-# BONUS: Ujisti se ze specialni znaky jsou spravne vypsane
-# BONUS: Zformatuj json pro vetsi citelnost: napr.:
-# {
-#     "JménoProduktu": "Kosmodisk",
-#     "Cena": 2999,
-#     "Skladem": false,
-#     "Dopravne": 199
-# }
-
+import json
 
 json_retezec_z_eshopu = """
 {
@@ -20,3 +12,12 @@ json_retezec_z_eshopu = """
     "Skladem": true
 }
 """
+
+seznam = json.loads(json_retezec_z_eshopu)
+seznam["Skladem"] = False
+seznam["Dopravne"] = 199
+
+# ensure_ascii=False resi vypisovani specialnich znaku jako diakritika
+# indent=2 nastavuje odsazeni proi formatovani
+upraveny_json = json.dumps(seznam, ensure_ascii=False, indent=2)
+print(upraveny_json)

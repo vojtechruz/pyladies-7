@@ -3,7 +3,7 @@ Farma zvirat
 - kazde zvire ma jmeno
 - aplikujte dedicnost jak uznate za vhodne
 - kazde zvire vydava nejaky jiny zvuk (metoda), pri krmeni vyda tento zvuk
-- zvire je mozne krmit konkretnim jidle
+- zvire je mozne krmit konkretnim jidlem
 - jedno ze zvirat bude prijimat jen specificky typ potravy
 - od kazdeho zvirete udelejte vice instanci
 - vsechny instance budou v seznamu zvirat
@@ -12,4 +12,6 @@ Farma zvirat
 
 BONUS: Pri tvorbe zvirete jde definovat jestli ma hlad, pokud ne krmeni odmita
 BONUS: Zvire ma metodu rozmnoz se ktere vrati novou instanci stejneho zvirete
-BONUS: UDelejte podtridu jednoho ze zvirat, ktere je nemocne a neprijima potravu
+BONUS: Udelejte podtridu jednoho ze zvirat, ktere je nemocne a neprijima potravu
+BONUS: Definice trid dejte do separatniho modulu
+BONUS: PRidejte kravu a ovci, ktere jde dojit, hladova zvirata daji mene mleka

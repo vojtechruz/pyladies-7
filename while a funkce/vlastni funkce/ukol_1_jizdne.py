@@ -6,4 +6,3 @@
 # 2. Mladez do 18 vcetne let jezdi za polovinu
 # 3. Seniori od 65 let vcetne jezdi za tretinu
 # 4. Ostatni jezdi za plnou cenu
-# 5. Zaporny vek musi skoncit vyjimkou ValueError

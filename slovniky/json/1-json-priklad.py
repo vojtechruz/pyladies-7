@@ -1,6 +1,8 @@
 # Priklad retezce ve formatu JSON
 # Trojite uvozovky v Pythonu umoznuji zapsat retezec
 # na vice radku
+import json
+
 json_retezec = """ 
 {
     "jméno": "Drobek",
@@ -14,7 +16,7 @@ json_retezec_z_eshopu = """
 {
     "jméno_produktu": "Kosmodisk",
     "cena": 2999,
-    "skladem": true,
+    "skladem": true
 }
 """
 

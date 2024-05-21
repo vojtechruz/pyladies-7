@@ -1,4 +1,5 @@
 -- Vytvori novou tabulku se sloupci fact a source, ktere jsou retezce az 20 znaku dlouhe
+-- datove typy https://www.sqlite.org/datatype3.html
 create table cat_facts (fact varchar20, source varchar20);
 
 -- Pro jednotlive sloupce muzeme nastavit ze hodnota nesmi byt prazdna

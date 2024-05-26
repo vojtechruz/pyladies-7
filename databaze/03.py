@@ -3,6 +3,7 @@ from random import choice
 
 facts_api = cat_facts.CatFacts()
 
+# Tady jsme pridali nacitani a ukladani faktu do souboru
 
 try:
     soubor = open('facts.txt', encoding='utf-8')

@@ -1,5 +1,6 @@
 import cat_facts
-from random import choice
+
+# Tohle je pocatecni stav naseho programu, ktery budeme postupne vylepsovat
 
 facts_api = cat_facts.CatFacts()
 

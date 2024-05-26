@@ -1,11 +1,22 @@
 import cat_facts
 from random import choice
-
-# Tady jsme doplnili fukncionalitu z predesleho ukolu
+import sqlite3
 
 facts_api = cat_facts.CatFacts()
 
-facts = facts_api.get_random_facts()
+con = sqlite3.connect("05.db")
+
+cursor = con.cursor()
+
+cursor.execute("create table if not exists cat_facts (fact)")
+
+facts_raw = cursor.execute("select * from cat_facts").fetchall()
+
+facts = []
+for fact in facts_raw:
+    facts.append(fact[0])
+
+# print(facts)
 
 while True:
     print("-------------------------------------------------------------------------")
@@ -39,5 +50,18 @@ while True:
 
     else:
         print(f'Volbu "{volba}" neznám.')
+
+
+print("Zapisuji fakta do db")
+cursor.execute("delete from cat_facts")
+
+for fact in facts:
+    print(fact)
+    cursor.execute("insert into cat_facts values(?)", (fact,))
+
+response = cursor.execute("select * from cat_facts")
+print(response.fetchall())
+con.commit()
+
 
 print("Na viděnou příště")

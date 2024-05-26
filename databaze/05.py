@@ -4,6 +4,7 @@ from random import choice
 
 facts_api = cat_facts.CatFacts()
 
+# Takhle jsme zanechali nas program
 # TODO nyni pojdme nahradit nacitani ze souboru z databaze
 
 

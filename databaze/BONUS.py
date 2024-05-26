@@ -28,31 +28,36 @@ while True:
     if volba == 'fakt':
         if len(facts) == 0:
             print("Nemam zadna fakta")
-            # TODO kdyz nejsou lokalni fakta, zeptej se uzivatele, zda chce nacist a pokud ano nacti (stejne jako volba nacti)
-            # TODO mame ted nejakou opakujici se logiku, kterou muzeme vytknout?
             continue
 
         print('Fakt o kočkách:', choice(facts))
+        # TODO potom co se ukaze fakt, tak se zeptej uzivatele zda si preje
+        # - smazat fakt - lokalne i z db
+        # - ulozit fakt mezi oblibene (Muzeme pridat novy sloupec je_oblibeny jako Boolean - true or false)
+        # - pokud je fakt uz oblibeny, tak ho odstranit z oblibenych
+
+
+
     elif volba == "nacti":
         print("Nacitam data z API")
         random_facts = facts_api.get_random_facts()
         print("Pocet faktu nactenych z API: "+str(len(random_facts)))
         facts.extend(random_facts)
         print("Pocet faktu po nacteni: "+str(len(facts)))
-        # TODO po nacteni dat z API ulozime nova fakta do DB
+        # TODO zde budeme ukladat s faktem novou hodnotu - zda pochazi z api nebo od uzivatele
 
     elif volba == "smazvse":
         print("Mazu vse")
-        # TODO smaz vse i v DB
         facts = []
 
     elif volba == "pocet":
         print("Pocet faktu: "+str(len(facts)))
-        # TODO vrat pocet polozek v databazi
 
     elif volba == "konec":
         break
-
+    # TODO nova volba - zobraz oblibena fakta
+    # TODO nova volba pridej novy uzivatelsky fakt, zde budeme ukladat s faktem novou hodnotu - zda pochazi z api nebo od uzivatele
+    # TODO nova volba - zobraz vsecna rucne vlozena fakta
     else:
         print(f'Volbu "{volba}" neznám.')
 
@@ -60,7 +65,6 @@ while True:
 print("Zapisuji fakta do db")
 cursor.execute("delete from cat_facts")
 
-# TODO tohle uz nebudeme potrebovat, protoze ukladame prubezne
 for fact in facts:
     print(fact)
     cursor.execute("insert into cat_facts values(?)", (fact,))

@@ -1,6 +1,8 @@
 import sqlite3
 con = sqlite3.connect("example.db")
 
+# Ukazka jak se z pythonu pripojit k databazi SQLite
+
 cursor = con.cursor()
 cursor.execute("CREATE TABLE if not exists movie(title, year, score)")
 

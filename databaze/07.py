@@ -38,12 +38,17 @@ while True:
         facts.extend(random_facts)
         print("Pocet faktu po nacteni: "+str(len(facts)))
 
+        for fact in random_facts:
+            cursor.execute("insert into cat_facts values(?)", (fact,))
+
     elif volba == "smazvse":
         print("Mazu vse")
         facts = []
+        cursor.execute("delete from cat_facts")
 
     elif volba == "pocet":
-        print("Pocet faktu: "+str(len(facts)))
+        pocet = cursor.execute("select count(*) from main.cat_facts").fetchone()[0]
+        print("Pocet faktu: "+str(pocet))
 
     elif volba == "konec":
         break

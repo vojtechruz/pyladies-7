@@ -22,7 +22,7 @@ while True:
         # TODO - smazat lokalni seznam faktu
         pass
     elif volba == "pocet":
-        # TODO - smazat lokalni seznam faktu
+        # TODO - vypis pocet lokalnich faktu
         pass
     elif volba == "konec":
         break
@@ -30,3 +30,5 @@ while True:
         print(f'Volbu "{volba}" neznám.')
 
 print("Na viděnou příště")
+
+#

@@ -18,3 +18,10 @@ kotatko.zamnoukej('Mnau?')
 jine_kotatko = Kotatko('Mourek')
 # jine_kotatko.jmeno = 'Mourek'
 jine_kotatko.zamnoukej('Mnaaaaaaau!')
+
+
+# Tohle uz nejde
+# kotatko = Kotatko()
+
+# Volitelne parametry s vychozi hodnotou muzeme zapsat takto:
+# def __init__(self, jmeno, pocet_zivotu=9):

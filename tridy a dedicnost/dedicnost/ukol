@@ -7,7 +7,7 @@ Farma zvirat
 - jedno ze zvirat bude prijimat jen specificky typ potravy
 - od kazdeho zvirete udelejte vice instanci
 - vsechny instance budou v seznamu zvirat
-- zvirata po urcitem poctu krmeni odmitnou potravu, lisi e per zvire
+- zvirata po urcitem poctu krmeni odmitnou potravu, lisi se per zvire
 - pri spusteni nakrmte vsechna zvirata v seznamu
 
 BONUS: Pri tvorbe zvirete jde definovat jestli ma hlad, pokud ne krmeni odmita

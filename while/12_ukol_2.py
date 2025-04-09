@@ -7,4 +7,4 @@
 
 # BONUS: Po skonceni hry se te pocitac zepta, zda ches hrat znovu a pokud ano,
 #        hra pobezi od zacatku od nuly
-# BONUS:
+# BONUS: Pri startu hry se zeptej uzivatele do kolika bodu chce hrat

@@ -16,6 +16,19 @@
 # 6
 # Konec hry!
 
-# Bonus: Pokud hra neskonci do 10 pokusu, sama se ukonci
-# BONUS: Po konci hry se hra zepta, zda chce uzivatel hrat znovu
-# BONUS: Pri startu si uzivatel zvoli, zda bude hrat s kostkou sestistennou nebo desetistennou
+
+from random import randrange
+
+#Reseni 1
+while True:
+    hod = randrange(1,7)
+    print(hod)
+    if hod == 6:
+        break
+
+
+# Reseni 2
+hod = 0
+while hod != 6:
+    hod = randrange(1,7)
+    print(hod)

@@ -1,5 +1,7 @@
 import pyglet
 
+window = pyglet.window.Window()
+
 snake_image = pyglet.image.load('snake.png')
 snake_sprite = pyglet.sprite.Sprite(snake_image)
 
@@ -11,7 +13,6 @@ def draw_snake():
     snake_sprite.draw()
 
 
-window = pyglet.window.Window()
 # Every time we need to redraw (for example when minimalizing and then
 # maximizing the app window), function draw_snake will be called
 window.push_handlers(on_draw=draw_snake)

@@ -15,7 +15,6 @@ import math
 import random
 
 import pyglet
-from pyglet import gl
 from pyglet.window import key
 
 # Množina kláves, která jsou právě stisknuté (nastavuje se ve funkcích
@@ -29,9 +28,7 @@ UHLOVA_RYCHLOST_ASTEROIDU = 200  # max, stupnu/s
 VELIKOST_LODI = 20  # px
 VELIKOST_ASTEROIDU = 40  # px, pocatecni
 MINIMALNI_VELIKOST_ASTEROIDU = 15  # px
-SISATOST = 5 # px, max. odchylka od VELIKOST_ASTEROIDU
 RYCHLOST_ASTEROIDU = 100  # max, px/s
-POCET_VYSECI_ASTEROIDU = 13
 VELIKOST_TORPEDA = 3  # px
 RYCHLOST_TORPEDA = 500  # px/s
 POCET_ASTEROIDU = 3
@@ -41,6 +38,16 @@ game_over = False
 
 # Vytvoření okna
 window = pyglet.window.Window(width=800, height=600)
+
+
+def otoc_bod(x, y, uhel_stupne):
+    """Otočí bod (x, y) kolem počátku (0, 0) o daný úhel ve stupních."""
+    uhel = math.radians(uhel_stupne)
+    return (
+        x * math.cos(uhel) - y * math.sin(uhel),
+        x * math.sin(uhel) + y * math.cos(uhel),
+    )
+
 
 class VesmirnyObjekt(object):
     """Objekt s polohou, rychlostí, a natočením
@@ -69,21 +76,13 @@ class VesmirnyObjekt(object):
                 self.nakresli_jednou(x, y)
 
     def nakresli_jednou(self, x, y):
-        """Vykresli objekt na dané pozici
+        """Vykresli objekt na dané pozici (x, y)
 
-        Pro samotné vykreslení se volá metoda ``nakresli_tvar``, která
-        je definovaná v každé konkrétní třídě vesmírných objektů.
+        Tuto metodu si definuje každá konkrétní třída vesmírných objektů
+        sama (raketa kreslí trojúhelník, asteroid kruh, ...).
         """
-        # Zapamatovat si stav souřadného systému
-        gl.glPushMatrix()
-        # Posunout počátek souřadnic na pozici rakety
-        gl.glTranslatef(x, y, 0)
-        # Otočit systém souřadnic o příslušný úhel
-        gl.glRotatef(self.rotace, 0, 0, 1)
-        self.nakresli_tvar()
-        # Vrátit souřadný systém do původního stavu (zapamatovaného
-        # pomocí glPushMatrix)
-        gl.glPopMatrix()
+        # Tady nic neděláme - kreslení má na starosti každá podtřída zvlášť.
+        pass
 
     def pohyb(self, dt):
         """Posun objekt po uplynutí dt sekund
@@ -117,17 +116,30 @@ class VesmirnyObjekt(object):
 class Raketa(VesmirnyObjekt):
     """Trojúhelníkovitý vesmírný objekt ovládaný uživatelem
     """
-    def nakresli_tvar(self):
-        """Nakreslí trojúhelník"""
-        gl.glColor3f(0, 1, 0)
-        # Začít kreslit trojúhelník
-        gl.glBegin(gl.GL_TRIANGLE_FAN)
-        # Zadat souřadnice vrcholu trojúhelníka (X značí vrcholy, + počátek)
-        gl.glVertex2f(-VELIKOST_LODI, VELIKOST_LODI/2)   #  X
-        gl.glVertex2f(VELIKOST_LODI, 0)                  #     +  X
-        gl.glVertex2f(-VELIKOST_LODI, -VELIKOST_LODI/2)  #  X
-        # Konec kreslení trojuhelníka
-        gl.glEnd()
+    def nakresli_jednou(self, x, y):
+        """Nakreslí raketu jako zelený trojúhelník na pozici (x, y)"""
+        # Vrcholy trojúhelníka vůči středu lodi (X značí vrcholy, + počátek):
+        #  X
+        #     +  X
+        #  X
+        vrcholy = [
+            (-VELIKOST_LODI, VELIKOST_LODI / 2),
+            (VELIKOST_LODI, 0),
+            (-VELIKOST_LODI, -VELIKOST_LODI / 2),
+        ]
+        # Každý vrchol otočíme podle natočení lodi a posuneme na pozici (x, y)
+        body = []
+        for vrchol_x, vrchol_y in vrcholy:
+            otoceny_x, otoceny_y = otoc_bod(vrchol_x, vrchol_y, self.rotace)
+            body.append((x + otoceny_x, y + otoceny_y))
+
+        trojuhelnik = pyglet.shapes.Triangle(
+            body[0][0], body[0][1],
+            body[1][0], body[1][1],
+            body[2][0], body[2][1],
+            color=(0, 255, 0),
+        )
+        trojuhelnik.draw()
 
     def pohyb(self, dt):
         """Aktualizuj stav rakety po ``dt`` uplynulých sekundách"""
@@ -212,40 +224,16 @@ class Asteroid(VesmirnyObjekt):
         self.uhlova_rychlost = random.uniform(
             -UHLOVA_RYCHLOST_ASTEROIDU,
             UHLOVA_RYCHLOST_ASTEROIDU)
-        # Asteroidu bude mít náhodnýmé odchylky od pravidelného n-úhelníku
-        # (které se nebudou v průběhu "života" asteroidu měnit)
-        # Stejně tak bude mít každý bod na obvodu svoji barvu.
-        self.vlastnosti = []
-        for i in range(POCET_VYSECI_ASTEROIDU):
-            b = random.uniform(0.7, 1)
-            g = b * random.uniform(0.7, 1)
-            r = g * random.uniform(0.7, 1)
-            self.vlastnosti.append((
-                random.uniform(-1, 1),
-                (r, g, b),
-            ))
         self.jsem_asteroid = True
         self.velikost = VELIKOST_ASTEROIDU
 
-    def nakresli_tvar(self):
-        """Nakreslí asteroid jako n-úhelník se středem v (0, 0)"""
-        gl.glColor3f(1, 1, 1)
-        gl.glBegin(gl.GL_TRIANGLE_FAN)
-        # Bod společný všem vykresleným trojúhelníkům
-        gl.glVertex2f(0, 0)
-        # Jednotlivé body na obvodu
-        for i, (s, (r, g, b)) in enumerate(self.vlastnosti + self.vlastnosti[:1]):
-            # delka = Poloměr n-úhelníku v tomto bodu, v pixelech
-            delka = self.velikost + s * SISATOST
-            # úhel je v radiánech
-            uhel = i * math.pi * 2 / POCET_VYSECI_ASTEROIDU
-            # Nastavit barvu
-            gl.glColor3f(r, g, b)
-            # Přidat bod
-            gl.glVertex2f(
-                math.cos(uhel) * delka,
-                math.sin(uhel) * delka)
-        gl.glEnd()
+    def nakresli_jednou(self, x, y):
+        """Nakreslí asteroid jako šedý kruh na pozici (x, y)"""
+        kruh = pyglet.shapes.Circle(
+            x, y, self.velikost,
+            color=(200, 200, 200),
+        )
+        kruh.draw()
 
     def rozbij(self):
         objekty.remove(self)
@@ -276,15 +264,13 @@ class Torpedo(VesmirnyObjekt):
         # Natočení torpéda je stejné jako natočení lodi
         self.rotace = raketa.rotace
 
-    def nakresli_tvar(self):
-        """Nakreslí obdélník"""
-        gl.glColor3f(1, 0.5, 0)
-        gl.glBegin(gl.GL_TRIANGLE_FAN)
-        gl.glVertex2f(-VELIKOST_TORPEDA, -VELIKOST_TORPEDA/2)
-        gl.glVertex2f(-VELIKOST_TORPEDA, VELIKOST_TORPEDA/2)
-        gl.glVertex2f(VELIKOST_TORPEDA, VELIKOST_TORPEDA/2)
-        gl.glVertex2f(VELIKOST_TORPEDA, -VELIKOST_TORPEDA/2)
-        gl.glEnd()
+    def nakresli_jednou(self, x, y):
+        """Nakreslí torpédo jako malý oranžový kruh na pozici (x, y)"""
+        torpedo = pyglet.shapes.Circle(
+            x, y, VELIKOST_TORPEDA,
+            color=(255, 128, 0),
+        )
+        torpedo.draw()
 
     def pohyb(self, dt):
         """Aktualizuj stav rakety po ``dt`` uplynulých sekundách"""
@@ -316,10 +302,8 @@ for i in range(POCET_ASTEROIDU):
 
 def vykresli():
     """Vykresli celou scénu"""
-    # Reset okýnka
-    gl.glClear(gl.GL_COLOR_BUFFER_BIT)
-    # Reset souřadného systému
-    gl.glLoadIdentity()
+    # Smazat obsah okna
+    window.clear()
     # Nakreslení samotných objektů
     for objekt in list(objekty):
         objekt.nakresli()

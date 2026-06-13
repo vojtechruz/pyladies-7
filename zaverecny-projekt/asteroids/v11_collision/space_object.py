@@ -1,6 +1,5 @@
 import pyglet
 import math
-from pyglet import gl
 
 # Degrees per second
 ROTATION_SPEED = 200
@@ -27,22 +26,12 @@ class SpaceObject:
         self.radius = self.sprite.width//2 + 3
 
     def draw_circle(self, x, y, radius):
-        iterations = 20
-        s = math.sin(2*math.pi / iterations)
-        c = math.cos(2*math.pi / iterations)
-
-        dx, dy = radius, 0
-
-        gl.glBegin(gl.GL_LINE_STRIP)
         if(self.collision):
-            gl.glColor3d(255, 0, 0)
+            color = (255, 0, 0)
         else:
-            gl.glColor3d(255, 255, 255)
+            color = (255, 255, 255)
 
-        for i in range(iterations+1):
-            gl.glVertex2f(x+dx, y+dy)
-            dx, dy = (dx*c - dy*s), (dy*c + dx*s)
-        gl.glEnd()
+        pyglet.shapes.Arc(x, y, radius, color=color).draw()
 
     def draw(self):
         self.sprite.x = self.x

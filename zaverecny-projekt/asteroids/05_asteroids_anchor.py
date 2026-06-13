@@ -1,5 +1,7 @@
 import pyglet
 
+window = pyglet.window.Window()
+
 spaceship_image = pyglet.image.load('assets/PNG/playerShip1_blue.png')
 
 # Image is positioned by its middle, not lower left corner
@@ -18,7 +20,6 @@ def draw_spaceship():
     spaceship_sprite.draw()
 
 
-window = pyglet.window.Window()
 # Every time we need to redraw (for example when minimizing and then
 # maximizing the app window), function draw_spaceship will be called
 window.push_handlers(on_draw=draw_spaceship)

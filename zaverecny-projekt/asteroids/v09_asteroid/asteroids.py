@@ -1,7 +1,7 @@
 import pyglet
+from pyglet.math import Mat4, Vec3
+
 from spaceship import Spaceship
-from asteroid import Asteroid
-from pyglet import gl
 
 WINDOW_HEIGHT = 400
 WINDOW_WIDTH = 800
@@ -26,17 +26,15 @@ def draw_all_objects():
 
     for x_offset in (-window.width, 0, window.width):
         for y_offset in (-window.height, 0, window.height):
-            # Remember the current state
-            gl.glPushMatrix()
             # Move everything drawn from now on by (x_offset, y_offset, 0)
-            gl.glTranslatef(x_offset, y_offset, 0)
+            window.view = Mat4.from_translation(Vec3(x_offset, y_offset, 0))
 
             # Draw
             for obj in objects:
                 obj.draw()
 
-            # Restore remembered state (this cancels the glTranslatef)
-            gl.glPopMatrix()
+            # Restore the default (un-shifted) view
+            window.view = Mat4()
 
 
 def tick_all_objects(time_elapsed):

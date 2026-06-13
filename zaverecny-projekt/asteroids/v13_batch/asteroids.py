@@ -1,7 +1,7 @@
 import pyglet
 from spaceship import Spaceship
 from asteroid import Asteroid
-from pyglet import gl
+from pyglet.math import Mat4, Vec3
 import random
 
 WINDOW_HEIGHT = 400
@@ -54,16 +54,14 @@ def draw_all_objects():
 
     for x_offset in (-window.width, 0, window.width):
         for y_offset in (-window.height, 0, window.height):
-            # Remember the current state
-            gl.glPushMatrix()
             # Move everything drawn from now on by (x_offset, y_offset, 0)
-            gl.glTranslatef(x_offset, y_offset, 0)
+            window.view = Mat4.from_translation(Vec3(x_offset, y_offset, 0))
 
             # Draw
             batch.draw()
 
-            # Restore remembered state (this cancels the glTranslatef)
-            gl.glPopMatrix()
+            # Restore the default (un-shifted) view
+            window.view = Mat4()
 
 def distance(a, b, wrap_size):
     """Distance in one direction (x or y)"""

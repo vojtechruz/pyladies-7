@@ -41,17 +41,6 @@ def init_asteroids():
 def draw_all_objects():
     window.clear()
 
-    if(game_over):
-        game_over_label = pyglet.text.Label(
-            'Game Over',
-            font_name='League Gothic',
-            font_size=40,
-            x=window.width / 2,
-            y=window.height / 2,
-            anchor_x='center')
-        game_over_label.draw()
-
-
     for x_offset in (-window.width, 0, window.width):
         for y_offset in (-window.height, 0, window.height):
             # Move everything drawn from now on by (x_offset, y_offset, 0)
@@ -62,6 +51,16 @@ def draw_all_objects():
 
             # Restore the default (un-shifted) view
             window.view = Mat4()
+
+    # Draw the game over text last, so nothing is drawn on top of it
+    if(game_over):
+        game_over_label = pyglet.text.Label(
+            'Game Over',
+            font_size=40,
+            x=window.width / 2,
+            y=window.height / 2,
+            anchor_x='center')
+        game_over_label.draw()
 
 def distance(a, b, wrap_size):
     """Distance in one direction (x or y)"""

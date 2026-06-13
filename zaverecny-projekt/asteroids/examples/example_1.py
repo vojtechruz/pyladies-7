@@ -310,7 +310,6 @@ def vykresli():
     if game_over:
         napis = pyglet.text.Label(
             'Game Over',
-            font_name='League Gothic',
             font_size=VELIKOST_FONTU,
             x=window.width / 2,
             y=window.height / 2,

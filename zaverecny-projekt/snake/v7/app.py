@@ -33,14 +33,6 @@ def draw():
     pyglet.gl.glEnable(pyglet.gl.GL_BLEND)
     pyglet.gl.glBlendFunc(pyglet.gl.GL_SRC_ALPHA, pyglet.gl.GL_ONE_MINUS_SRC_ALPHA)
 
-    if board.game_over:
-        label = pyglet.text.Label('GAME OVER',
-                                  font_name='Times New Roman',
-                                  font_size=36,
-                                  x=window.width // 2, y=window.height // 2,
-                                  anchor_x='center', anchor_y='center')
-        label.draw()
-
     # Draw snake tile by tile
     for index, val in enumerate(board.snake):
         snake_tile_image_name = board.get_image_name(index)
@@ -50,6 +42,14 @@ def draw():
     apple = pyglet.image.load('apple.png')
     for x, y in board.food:
         apple.blit(x * TILE_SIZE, y * TILE_SIZE, width=TILE_SIZE, height=TILE_SIZE)
+
+    # Draw the game over text last, so nothing is drawn on top of it
+    if board.game_over:
+        label = pyglet.text.Label('GAME OVER',
+                                  font_size=36,
+                                  x=window.width // 2, y=window.height // 2,
+                                  anchor_x='center', anchor_y='center')
+        label.draw()
 
 
 def tick(time_elapsed):

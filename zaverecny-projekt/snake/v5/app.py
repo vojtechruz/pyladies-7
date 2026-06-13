@@ -27,14 +27,6 @@ def draw():
     # Clear contents of the window, delete everything
     window.clear()
 
-    if board.game_over:
-        label = pyglet.text.Label('GAME OVER',
-                                  font_name='Times New Roman',
-                                  font_size=36,
-                                  x=window.width//2, y=window.height//2,
-                                  anchor_x='center', anchor_y='center')
-        label.draw()
-
     # Draw snake tile by tile
     green_image = pyglet.image.load('green.png')
     for x, y in board.snake:
@@ -44,6 +36,14 @@ def draw():
     red_image = pyglet.image.load('red.png')
     for x, y in board.food:
         red_image.blit(x * TILE_SIZE, y * TILE_SIZE, width=TILE_SIZE, height=TILE_SIZE)
+
+    # Draw the game over text last, so nothing is drawn on top of it
+    if board.game_over:
+        label = pyglet.text.Label('GAME OVER',
+                                  font_size=36,
+                                  x=window.width//2, y=window.height//2,
+                                  anchor_x='center', anchor_y='center')
+        label.draw()
 
 
 def tick(time_elapsed):

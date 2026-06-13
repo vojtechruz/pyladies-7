@@ -75,7 +75,6 @@ def collision(obj):
     game_over = True
     game_over_label = pyglet.text.Label(
         'Game Over',
-        font_name='League Gothic',
         font_size=40,
         x=window.width / 2,
         y=window.height / 2,
